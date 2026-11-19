@@ -1,0 +1,30 @@
+name: Deploy and verify SemanticSessionWindows
+on:
+  push:
+    branches:
+      - studio-proof-run
+
+permissions:
+  contents: read
+
+concurrency:
+  group: semantic-session-windows-studionet
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts
+      - name: Deploy and prove out-of-order windowing
+        run: node scripts/live.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studionet-receipts
+          path: PROOFS.json
