@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {abi, createAccount, createClient} from 'genlayer-js';
 import {studionet} from 'genlayer-js/chains';
-import {digest, sha, rpc, receipt, source, read} from './check.mjs';
+import {digest, sha, jsonSafe, rpc, receipt, source, read} from './check.mjs';
 
 const journal = 'PROOFS.json';
 const code = 'contracts/SemanticSessionWindows.py';
@@ -83,7 +83,7 @@ async function transaction(step, account, functionName, args, error) {
   const leader = native.consensus_data.leader_receipt.find(item => item.mode === 'leader');
   const bytes = Buffer.from(leader.result, 'base64');
   assert.equal(bytes[0], 0);
-  return {address: entry.receipt.address, result: abi.calldata.decode(bytes.subarray(1))};
+  return {address: entry.receipt.address, result: jsonSafe(abi.calldata.decode(bytes.subarray(1)))};
 }
 
 const policy = 'Completed equipment inspections. Exclude plans and cancelled inspections.';
