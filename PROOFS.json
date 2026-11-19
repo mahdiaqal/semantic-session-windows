@@ -1,0 +1,492 @@
+{
+  "network": "StudioNet",
+  "source_commit": "043796da1819974ddb4aa33988effcae85b36ebd",
+  "transactions": [
+    {
+      "step": "deploy",
+      "signer": "0x94A170438a15EBC96FcC4938BE3D87A95a606325",
+      "nonce": "0x0",
+      "functionName": "deploy",
+      "args": [],
+      "hash": "0x3063a33acb85d964454625f08e57f8884af8a362b7bd37af01dd751f2578fc84",
+      "receipt": {
+        "hash": "0x3063a33acb85d964454625f08e57f8884af8a362b7bd37af01dd751f2578fc84",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 5,
+        "idle_votes": 0,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "create-feed",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x0",
+      "functionName": "create_feed",
+      "args": [
+        "inspections",
+        "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        10
+      ],
+      "hash": "0xe35d1cb9bf5328ee1f1cb4b67037ebaef0630d4069ee2e9d7f13a86fb99bb30f",
+      "receipt": {
+        "hash": "0xe35d1cb9bf5328ee1f1cb4b67037ebaef0630d4069ee2e9d7f13a86fb99bb30f",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "first",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x1",
+      "functionName": "ingest",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        "first",
+        "mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/first.txt",
+        "63100babe9a052e60429043a0724d8d5c15af5c4931cc74aac969d0b6eefbb78"
+      ],
+      "hash": "0xee337838ce8dba338cdeadb336e9f5f966b398d59b21c41052988c518e6083a0",
+      "receipt": {
+        "hash": "0xee337838ce8dba338cdeadb336e9f5f966b398d59b21c41052988c518e6083a0",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "last",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x2",
+      "functionName": "ingest",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        "last",
+        "mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/last.txt",
+        "79ada73fe8d87c17ef85db459f1612661865e875a211871f2e7e2d5912450da5"
+      ],
+      "hash": "0xfe7d1e49ba04e63c587ed6b2b57722da25a9c69d8a5fafb24baf9c416b8c147c",
+      "receipt": {
+        "hash": "0xfe7d1e49ba04e63c587ed6b2b57722da25a9c69d8a5fafb24baf9c416b8c147c",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "bridge",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x3",
+      "functionName": "ingest",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        "bridge",
+        "mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/bridge.txt",
+        "37de4ca05d3d4eb69c7af2b09e54467ccc3cf30b8414b91564e201d58989fb57"
+      ],
+      "hash": "0x3655942c999f88d2f57774c84fd55e5f76c1233d8e6a604bcb25ed44031719be",
+      "receipt": {
+        "hash": "0x3655942c999f88d2f57774c84fd55e5f76c1233d8e6a604bcb25ed44031719be",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "watermark-40",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x4",
+      "functionName": "advance_watermark",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        40
+      ],
+      "hash": "0x05480e4a1d2d0440d4cc67b7de64579e0de4fe168731f9895baf35d948f99731",
+      "receipt": {
+        "hash": "0x05480e4a1d2d0440d4cc67b7de64579e0de4fe168731f9895baf35d948f99731",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "watermark-41",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x5",
+      "functionName": "advance_watermark",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        41
+      ],
+      "hash": "0xe6ccb450ad6dd2d93db811bf838d736c7c26456561f657299f796b0fd98828e5",
+      "receipt": {
+        "hash": "0xe6ccb450ad6dd2d93db811bf838d736c7c26456561f657299f796b0fd98828e5",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "late",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x6",
+      "functionName": "ingest",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        "late",
+        "mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/late.txt",
+        "09466b3ce931c4a48934b3308f1048568e225fe603982b6959dc5c2f0c089ecf"
+      ],
+      "hash": "0xa6f784017426c8807cd7dcfc60393f7edc671b303cc13b151b14abc736cc5c34",
+      "receipt": {
+        "hash": "0xa6f784017426c8807cd7dcfc60393f7edc671b303cc13b151b14abc736cc5c34",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "planned",
+      "signer": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+      "nonce": "0x7",
+      "functionName": "ingest",
+      "args": [
+        "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+        "planned",
+        "mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/planned.txt",
+        "015711a5be7ba797fff893d1620e995215f05cf3ca917dde59ee4e86c3a75260"
+      ],
+      "hash": "0x0fba3beba53fd9a7ab223ef8dd2f95feee7cec3ad093aca4ea6fef97f507854e",
+      "expected_at_broadcast": "SUCCESS",
+      "error": "Notice acquisition or interpretation failed",
+      "consensus": "MAJORITY_DISAGREE",
+      "receipt": {
+        "hash": "0x0fba3beba53fd9a7ab223ef8dd2f95feee7cec3ad093aca4ea6fef97f507854e",
+        "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+        "status": "FINALIZED",
+        "execution": "ERROR",
+        "consensus": "MAJORITY_DISAGREE",
+        "expected_error_matched": true,
+        "committed": false,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 0,
+        "idle_votes": 2,
+        "disagree_votes": 3,
+        "validator_execution_seen": true
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "step": "first",
+      "state": {
+        "closed_count": 0,
+        "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+        "gap": 10,
+        "points": [
+          {
+            "id": "first",
+            "time": 10
+          }
+        ],
+        "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        "sessions": [
+          {
+            "end": 10,
+            "events": [
+              "first"
+            ],
+            "start": 10
+          }
+        ],
+        "watermark": 0
+      }
+    },
+    {
+      "step": "last",
+      "state": {
+        "closed_count": 0,
+        "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+        "gap": 10,
+        "points": [
+          {
+            "id": "first",
+            "time": 10
+          },
+          {
+            "id": "last",
+            "time": 30
+          }
+        ],
+        "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        "sessions": [
+          {
+            "end": 10,
+            "events": [
+              "first"
+            ],
+            "start": 10
+          },
+          {
+            "end": 30,
+            "events": [
+              "last"
+            ],
+            "start": 30
+          }
+        ],
+        "watermark": 0
+      }
+    },
+    {
+      "step": "bridge",
+      "state": {
+        "closed_count": 0,
+        "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+        "gap": 10,
+        "points": [
+          {
+            "id": "first",
+            "time": 10
+          },
+          {
+            "id": "last",
+            "time": 30
+          },
+          {
+            "id": "bridge",
+            "time": 20
+          }
+        ],
+        "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        "sessions": [
+          {
+            "end": 30,
+            "events": [
+              "first",
+              "bridge",
+              "last"
+            ],
+            "start": 10
+          }
+        ],
+        "watermark": 0
+      }
+    },
+    {
+      "step": "watermark-40",
+      "state": {
+        "closed_count": 0,
+        "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+        "gap": 10,
+        "points": [
+          {
+            "id": "first",
+            "time": 10
+          },
+          {
+            "id": "last",
+            "time": 30
+          },
+          {
+            "id": "bridge",
+            "time": 20
+          }
+        ],
+        "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        "sessions": [
+          {
+            "end": 30,
+            "events": [
+              "first",
+              "bridge",
+              "last"
+            ],
+            "start": 10
+          }
+        ],
+        "watermark": 40
+      }
+    },
+    {
+      "step": "watermark-41",
+      "state": {
+        "closed_count": 1,
+        "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+        "gap": 10,
+        "points": [],
+        "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        "sessions": [],
+        "watermark": 41
+      }
+    },
+    {
+      "step": "late",
+      "state": {
+        "closed_count": 1,
+        "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+        "gap": 10,
+        "points": [],
+        "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+        "sessions": [],
+        "watermark": 41
+      }
+    }
+  ],
+  "events": {
+    "first": {
+      "evidence": {
+        "decision": {
+          "status": "MATCH",
+          "time": 10
+        },
+        "notice": "The amber pump inspection was completed at logical event time 10.\nIt had originally been planned for logical time 8. The report was published at logical time 55.\n",
+        "sha256": "63100babe9a052e60429043a0724d8d5c15af5c4931cc74aac969d0b6eefbb78"
+      },
+      "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+      "status": "APPENDED",
+      "url": "https://raw.githubusercontent.com/mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/first.txt",
+      "watermark": 0
+    },
+    "last": {
+      "evidence": {
+        "decision": {
+          "status": "MATCH",
+          "time": 30
+        },
+        "notice": "At logical event time 30 the cobalt pump inspection finished.\nIts planned start was logical time 27. This notice was published at logical time 56.\n",
+        "sha256": "79ada73fe8d87c17ef85db459f1612661865e875a211871f2e7e2d5912450da5"
+      },
+      "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+      "status": "APPENDED",
+      "url": "https://raw.githubusercontent.com/mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/last.txt",
+      "watermark": 0
+    },
+    "bridge": {
+      "evidence": {
+        "decision": {
+          "status": "MATCH",
+          "time": 20
+        },
+        "notice": "The birch pump inspection took place and was completed at logical event time 20.\nThe earlier plan mentioned logical time 15. Publication happened at logical time 57.\n",
+        "sha256": "37de4ca05d3d4eb69c7af2b09e54467ccc3cf30b8414b91564e201d58989fb57"
+      },
+      "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+      "status": "APPENDED",
+      "url": "https://raw.githubusercontent.com/mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/bridge.txt",
+      "watermark": 0
+    },
+    "late": {
+      "evidence": {
+        "decision": {
+          "status": "MATCH",
+          "time": 25
+        },
+        "notice": "The elm pump inspection was completed at logical event time 25.\nPublication was delayed until logical time 60.\n",
+        "sha256": "09466b3ce931c4a48934b3308f1048568e225fe603982b6959dc5c2f0c089ecf"
+      },
+      "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+      "status": "LATE",
+      "url": "https://raw.githubusercontent.com/mahdiaqal/semantic-session-windows/043796da1819974ddb4aa33988effcae85b36ebd/fixtures/late.txt",
+      "watermark": 41
+    }
+  },
+  "previous_feed": "2bc156c73a054391f1bacf9db7dce2736a8432c2621839f6e72ff34a4737c4af",
+  "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+  "peer": "0x734f1C841E20065FaFd78d4C3Ec1EFEf8aaB7FD0",
+  "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+  "source": {
+    "address": "0x06BE2d04F565A6517F1F3De709996f4aF47F6487",
+    "source_match": true,
+    "sha256": "4d6b391677288d67cd6e4852875398b5350d88db48b883c4e8a4614bf3abcf88"
+  },
+  "feed": "78db8319c290307369627f9634bd173f5b678b25b3286366eb93142952c186ad",
+  "closed": {
+    "end": 30,
+    "events": [
+      "first",
+      "bridge",
+      "last"
+    ],
+    "start": 10,
+    "watermark": 41
+  },
+  "final": {
+    "closed_count": 1,
+    "creator": "0x7ebC5bC06eB9E46380B276eE5C2aDDea2dEC7199",
+    "gap": 10,
+    "points": [],
+    "policy": "Completed equipment inspections. Exclude plans and cancelled inspections.",
+    "sessions": [],
+    "watermark": 41
+  },
+  "planned_expected_status": "OUTSIDE",
+  "planned_outcome": "EVALUATION_REJECTED",
+  "hosted_run": "https://github.com/mahdiaqal/semantic-session-windows/actions/runs/44472006595",
+  "planned_no_record": true,
+  "verified": true
+}

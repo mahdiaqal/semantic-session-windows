@@ -139,6 +139,9 @@ def test_buffer_capacity_is_released_and_failed_insert_can_retry(windows, direct
             assert contract.ingest(feed, f"e{i}", coordinate, sha) == "APPENDED"
     assert len(contract.get_feed(feed)["points"]) == 1
     assert len(contract.get_closed(feed, 0)["events"]) == 16
+    assert contract.advance_watermark(feed, 20) == 1
+    assert contract.get_closed(feed, 1)["events"] == ["e16"]
+    assert len(contract.get_closed(feed, 0)["events"]) == 16
 
 
 def test_maximum_event_time_can_be_closed(windows, direct_vm):

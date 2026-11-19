@@ -42,6 +42,7 @@ Malformed AI output or validator disagreement cannot install a window update.
 Notices are commit-pinned GitHub .txt files containing at most 2048 UTF-8 bytes.
 Each matching notice needs exactly one event and an explicit unsigned 32-bit
 logical event time. Ambiguity yields UNKNOWN. The gap is 1–1000 time units.
+All notices in a feed are assumed to use the same logical clock and time unit.
 The watermark is an unsigned 64-bit value, allowing the final 32-bit event
 time to close after its gap. The buffer holds at most 16 events. Closing
 windows frees capacity.
@@ -60,3 +61,17 @@ runner compared an SDK BigInt with a Number. Its six successful receipts and
 initial feed are preserved in [INCOMPLETE_RUN.json](INCOMPLETE_RUN.json).
 The corrected runner reuses that deployment and opens a fresh demonstration
 feed with a temporary account.
+
+[Live proof ledger](LIVE_PROOFS.md) · [Submission text](SUBMISSION.md)
+
+The completed checks verified eight successful receipts, the archived window,
+and the LATE record. The planned-notice evaluation failed with validator
+disagreement and created no event record. Its receipt remains in the ledger.
+The run ended before the additional live deduplication and authorization checks.
+
+Replay receipt and final-state verification using read-only RPC.
+
+```sh
+npm ci --ignore-scripts
+node scripts/live.mjs --verify-only
+```

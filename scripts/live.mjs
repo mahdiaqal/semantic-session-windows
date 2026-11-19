@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {abi, createAccount, createClient} from 'genlayer-js';
 import {studionet} from 'genlayer-js/chains';
-import {digest, sha, jsonSafe, rpc, receipt, source, read} from './check.mjs';
+import {digest, sha, jsonSafe, rpc, receipt, source, read, denied} from './check.mjs';
 
 const journal = 'PROOFS.json';
 const code = 'contracts/SemanticSessionWindows.py';
@@ -82,7 +82,7 @@ async function transaction(step, account, functionName, args, error) {
   assert.equal(entry.functionName, functionName);
   assert.equal(entry.error, error);
   assert(entry.hash, 'Broadcast status unknown. Inspect the recorded nonce before resuming.');
-  entry.receipt = await receipt(entry.hash, error ? 'ERROR' : 'SUCCESS', error);
+  entry.receipt = await receipt(entry.hash, error ? 'ERROR' : 'SUCCESS', error, entry.consensus ?? 'MAJORITY_AGREE');
   save();
   assert.equal(entry.receipt.committed, !error);
   const native = await rpc('eth_getTransactionByHash', [entry.hash]);
@@ -132,7 +132,7 @@ async function ingest(account, name, time, status, watermark) {
 }
 
 if (verifyOnly) {
-  assert(proof.verified && proof.address && proof.feed);
+  assert(proof.address && proof.feed && proof.final && proof.closed);
   for (const tx of proof.transactions) {
     await transaction(tx.step, null, tx.functionName, tx.args, tx.error);
   }
@@ -142,6 +142,12 @@ if (verifyOnly) {
   for (const [name, event] of Object.entries(proof.events)) {
     assert.deepEqual(await read(proof.address, 'get_event', [proof.feed, name]), event);
   }
+  if (proof.planned_outcome === 'EVALUATION_REJECTED') {
+    assert(await denied(proof.address, 'get_event', [proof.feed, 'planned']));
+    proof.planned_no_record = true;
+  }
+  proof.verified = true;
+  save();
   console.log('Verified all receipts, event records and closed window');
 } else {
   assert(!proof.transactions.length || (reuseDeployment && proof.transactions.length === 1
