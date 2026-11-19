@@ -54,3 +54,9 @@ python -m pytest tests -q
 
 [GenLayer equivalence principle](https://docs.genlayer.com/developers/intelligent-contracts/equivalence-principle) ·
 [Session windows and late data](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
+
+The first hosted proof run stopped after watermark 40 because the JavaScript
+runner compared an SDK BigInt with a Number. Its six successful receipts and
+initial feed are preserved in [INCOMPLETE_RUN.json](INCOMPLETE_RUN.json).
+The corrected runner reuses that deployment and opens a fresh demonstration
+feed with a temporary account.

@@ -2,15 +2,27 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {abi, createAccount, createClient} from 'genlayer-js';
 import {studionet} from 'genlayer-js/chains';
-import {digest, sha, rpc, receipt, source, read} from './check.mjs';
+import {digest, sha, jsonSafe, rpc, receipt, source, read} from './check.mjs';
 
 const journal = 'PROOFS.json';
 const code = 'contracts/SemanticSessionWindows.py';
 const verifyOnly = process.argv.includes('--verify-only');
+const reuseDeployment = process.argv.includes('--reuse-deployment');
 const proof = fs.existsSync(journal)
   ? JSON.parse(fs.readFileSync(journal, 'utf8'))
   : {network: 'StudioNet', source_commit: process.env.SOURCE_COMMIT ?? process.env.GITHUB_SHA ?? null,
     transactions: [], snapshots: [], events: {}};
+if (reuseDeployment && !proof.transactions.length) {
+  const previous = JSON.parse(fs.readFileSync('INCOMPLETE_RUN.json', 'utf8'));
+  const deployment = previous.transactions[0];
+  assert.equal(deployment.step, 'deploy');
+  assert.equal(deployment.functionName, 'deploy');
+  assert.match(deployment.hash ?? '', /^0x[a-f0-9]{64}$/i);
+  assert.equal(deployment.receipt.execution, 'SUCCESS');
+  assert.equal(deployment.receipt.status, 'FINALIZED');
+  proof.transactions.push(deployment);
+  proof.previous_feed = previous.feed;
+}
 const save = () => fs.writeFileSync(journal, JSON.stringify(proof, null, 2) + '\n');
 assert.match(proof.source_commit ?? '', /^[a-f0-9]{40}$/);
 assert.equal(await rpc('eth_chainId', []), '0xf22f');
@@ -83,7 +95,7 @@ async function transaction(step, account, functionName, args, error) {
   const leader = native.consensus_data.leader_receipt.find(item => item.mode === 'leader');
   const bytes = Buffer.from(leader.result, 'base64');
   assert.equal(bytes[0], 0);
-  return {address: entry.receipt.address, result: abi.calldata.decode(bytes.subarray(1))};
+  return {address: entry.receipt.address, result: jsonSafe(abi.calldata.decode(bytes.subarray(1)))};
 }
 
 const policy = 'Completed equipment inspections. Exclude plans and cancelled inspections.';
@@ -132,7 +144,8 @@ if (verifyOnly) {
   }
   console.log('Verified all receipts, event records and closed window');
 } else {
-  assert(!proof.transactions.length, 'Use --verify-only for an existing journal. Never rerun for new AI answers.');
+  assert(!proof.transactions.length || (reuseDeployment && proof.transactions.length === 1
+    && proof.transactions[0].step === 'deploy'), 'Use --verify-only for an existing journal.');
   const creator = createAccount();
   const peer = createAccount();
   proof.creator = creator.address;
