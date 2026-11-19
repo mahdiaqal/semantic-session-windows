@@ -1,0 +1,2 @@
+The amber pump inspection was completed at logical event time 10.
+It had originally been planned for logical time 8. The report was published at logical time 55.

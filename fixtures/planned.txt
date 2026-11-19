@@ -1,0 +1,2 @@
+A cedar pump inspection is scheduled for logical event time 18.
+It has not occurred. This planning notice was published at logical time 61.

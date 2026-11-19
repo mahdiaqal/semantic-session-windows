@@ -1,0 +1,2 @@
+At logical event time 30 the cobalt pump inspection finished.
+Its planned start was logical time 27. This notice was published at logical time 56.
